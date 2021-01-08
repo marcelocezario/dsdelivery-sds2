@@ -18,7 +18,7 @@ type Place = {
 }
 
 function OrderLocation() {
-    const [adress, setAddress] = useState<Place>({
+    const [address, setAddress] = useState<Place>({
         position: initialPosition
     })
 
@@ -64,15 +64,16 @@ function OrderLocation() {
                     />
                 </div>
                 <MapContainer
-                    center={adress.position}
+                    center={address.position}
                     zoom={13}
+                    key={address}
                     scrollWheelZoom={false}
                 >
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <Marker position={adress.position}>
+                    <Marker position={address.position}>
                         <Popup>
                             A pretty CSS3 popup. <br /> Easily customizable.
                         </Popup>
